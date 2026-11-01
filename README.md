@@ -1,4 +1,4 @@
-# Link Mobile SDK
+# Link Mobile SDK 2.7.4
 The Link Mobile SDK connects Last Lock's hardware ecosystem to mobile applications. It gives integrators a simple interface for BLE device discovery, connection management, and lock control without needing a custom Bluetooth implementation. The SDK maintains a background proxy connection so Last Lock hardware can communicate securely with the cloud.
 
 By integrating this SDK, developers can:
