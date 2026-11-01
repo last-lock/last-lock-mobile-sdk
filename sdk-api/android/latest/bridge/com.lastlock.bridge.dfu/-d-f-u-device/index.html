@@ -140,24 +140,24 @@
   <div class="breadcrumbs"><a href="../../index.html">bridge</a><span class="delimiter">/</span><a href="../index.html">com.lastlock.bridge.dfu</a><span class="delimiter">/</span><span class="current">DFUDevice</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>DFUDevice</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">DFUDevice</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>peripheral<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>parsedManifest<span class="token operator">: </span><a href="../-parsed-manifest/index.html">ParsedManifest</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>parsedMcubootManifest<span class="token operator">: </span><a href="../-parsed-mcuboot-manifest/index.html">ParsedMcubootManifest</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>oobRequestPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>currentVersion<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-device-firmware-version/index.html">DeviceFirmwareVersion</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>dfuVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>applicationUpdateRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>mcubootUpdateRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>stageIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">Device object pertaining to DFU library. Stores device information along with an optional parsed binary file representation used for performing DFU</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">DFUDevice</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>peripheral<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>parsedManifest<span class="token operator">: </span><a href="../-parsed-manifest/index.html">ParsedManifest</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>oobRequestPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>currentVersion<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-device-firmware-version/index.html">DeviceFirmwareVersion</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>dfuVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><p class="paragraph">Device object pertaining to DFU library. Stores device information along with an optional parsed binary file representation used for performing DFU</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
       <div data-togglable="CONSTRUCTOR">
         <h2 class="tableheader">Constructors</h2>
-        <div class="table"><a data-name="796527672%2FConstructors%2F2074461332" anchor-label="DFUDevice" id="796527672%2FConstructors%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+        <div class="table"><a data-name="633384012%2FConstructors%2F2074461332" anchor-label="DFUDevice" id="633384012%2FConstructors%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
           <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
                   <div><a href="-d-f-u-device.html"><span><span>DFUDevice</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="796527672%2FConstructors%2F2074461332"></span>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="633384012%2FConstructors%2F2074461332"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter ">peripheral<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">parsedManifest<span class="token operator">: </span><a href="../-parsed-manifest/index.html">ParsedManifest</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">parsedMcubootManifest<span class="token operator">: </span><a href="../-parsed-mcuboot-manifest/index.html">ParsedMcubootManifest</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">oobRequestPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">currentVersion<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-device-firmware-version/index.html">DeviceFirmwareVersion</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">dfuVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">applicationUpdateRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">mcubootUpdateRequired<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">stageIndex<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter ">peripheral<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">parsedManifest<span class="token operator">: </span><a href="../-parsed-manifest/index.html">ParsedManifest</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">oobRequestPayload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">currentVersion<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-device-firmware-version/index.html">DeviceFirmwareVersion</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">dfuVersion<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -166,22 +166,7 @@
       </div>
       <div data-togglable="PROPERTY">
         <h2 class="tableheader">Properties</h2>
-        <div class="table"><a data-name="-1814454260%2FProperties%2F2074461332" anchor-label="applicationUpdateRequired" id="-1814454260%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
-          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="application-update-required.html"><span>application</span><wbr><span>Update</span><wbr><span><span>Required</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1814454260%2FProperties%2F2074461332"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">var </span><a href="application-update-required.html">applicationUpdateRequired</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="1639859095%2FProperties%2F2074461332" anchor-label="currentVersion" id="1639859095%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+        <div class="table"><a data-name="1639859095%2FProperties%2F2074461332" anchor-label="currentVersion" id="1639859095%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
           <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
@@ -226,21 +211,6 @@
               </div>
             </div>
           </div>
-<a data-name="-2109398869%2FProperties%2F2074461332" anchor-label="mcubootUpdateRequired" id="-2109398869%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
-          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="mcuboot-update-required.html"><span>mcuboot</span><wbr><span>Update</span><wbr><span><span>Required</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2109398869%2FProperties%2F2074461332"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">var </span><a href="mcuboot-update-required.html">mcubootUpdateRequired</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
 <a data-name="-1498458877%2FProperties%2F2074461332" anchor-label="oobRequestPayload" id="-1498458877%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
           <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
             <div class="main-subrow keyValue ">
@@ -271,21 +241,6 @@
               </div>
             </div>
           </div>
-<a data-name="666207829%2FProperties%2F2074461332" anchor-label="parsedMcubootManifest" id="666207829%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
-          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="parsed-mcuboot-manifest.html"><span>parsed</span><wbr><span>Mcuboot</span><wbr><span><span>Manifest</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="666207829%2FProperties%2F2074461332"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">var </span><a href="parsed-mcuboot-manifest.html">parsedMcubootManifest</a><span class="token operator">: </span><a href="../-parsed-mcuboot-manifest/index.html">ParsedMcubootManifest</a><span class="token operator">?</span></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
 <a data-name="1815638618%2FProperties%2F2074461332" anchor-label="peripheral" id="1815638618%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
           <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
             <div class="main-subrow keyValue ">
@@ -297,21 +252,6 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">var </span><a href="peripheral.html">peripheral</a><span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="316054114%2FProperties%2F2074461332" anchor-label="stageIndex" id="316054114%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
-          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="stage-index.html"><span>stage</span><wbr><span><span>Index</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="316054114%2FProperties%2F2074461332"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">var </span><a href="stage-index.html">stageIndex</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
                 </div>
               </div>
             </div>

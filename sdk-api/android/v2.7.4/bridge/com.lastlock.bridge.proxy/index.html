@@ -1,0 +1,534 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>LinkMobile | Documentation</title>
+<script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../ui-kit/ui-kit.min.js" defer></script>    <link id="link-favicon" rel="icon" href="../../branding/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../branding/favicon.svg" type="image/svg+xml">
+<link href="../../styles/dokka-custom.css" rel="Stylesheet">
+<style id="link-dokka-inline-branding">
+.navigation .doc-version-badge {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+:root {
+  --dokka-logo-image-url: none !important;
+  --dokka-logo-height: 0 !important;
+  --dokka-logo-width: 0 !important;
+}
+.navigation .library-name--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.navigation .library-name--link > img:not(.doc-logo),
+.navigation .library-name--link [class*="kotlin"],
+.navigation .library-name--link [class*="dokka"] {
+  display: none !important;
+}
+.navigation .library-name--link::before,
+.navigation .library-name--link::after {
+  content: none !important;
+  background: none !important;
+}
+.navigation .library-name--link .doc-logo {
+  height: 18px;
+  width: 18px;
+  flex: 0 0 18px;
+  display: block;
+  object-fit: contain;
+}
+</style>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="/" tabindex="1">
+                    <img class="doc-logo" src="../../branding/logo.png" alt="Link logo">
+                    <span>LinkMobile</span>
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":bridge/androidMain">android</button>
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true" data-filter=":bridge/appleMain">apple</button>
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true" data-filter=":bridge/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":bridge/androidMain" data-filter=":bridge/androidMain">
+                                <span class="checkbox--icon"></span>
+                                android
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":bridge/appleMain" data-filter=":bridge/appleMain">
+                                <span class="checkbox--icon"></span>
+                                apple
+                            </label>
+                        </li>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":bridge/commonMain" data-filter=":bridge/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    LinkMobile
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="package" id="content" pageids="bridge::com.lastlock.bridge.proxy////PointingToDeclaration//-752493160">
+  <div class="breadcrumbs"><a href="../index.html">bridge</a><span class="delimiter">/</span><span class="current">com.lastlock.bridge.proxy</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="77644185%2FClasslikes%2F2074461332" anchor-label="AdvertisementTelemetryEntry" id="77644185%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-advertisement-telemetry-entry/index.html"><span>Advertisement</span><wbr><span>Telemetry</span><wbr><span><span>Entry</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="77644185%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-advertisement-telemetry-entry/index.html">AdvertisementTelemetryEntry</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>rssi<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>advertisingPacket<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">One BLE advertisement sample for structured bridge telemetry (see plane.proto).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1039052232%2FClasslikes%2F2074461332" anchor-label="BLEProxy" id="-1039052232%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-b-l-e-proxy/index.html"><span><span>BLEProxy</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1039052232%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-b-l-e-proxy/index.html">BLEProxy</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageStreamManager<span class="token operator">: </span><a href="-i-o-s-message-stream-manager/index.html">IOSMessageStreamManager</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>blueLink<span class="token operator">: </span><a href="../com.lastlock.bridge.bluelink/-blue-link/index.html">BlueLink</a><span class="token punctuation">, </span></span><span class="parameter ">networkConnectivityMonitor<span class="token operator">: </span><a href="../com.lastlock.bridge.core.network/-network-connectivity-monitor/index.html">NetworkConnectivityMonitor</a><span class="token punctuation">, </span></span><span class="parameter ">persistenceManager<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.persistence/-persistence-manager/index.html">PersistenceManager</a><span class="token punctuation">, </span></span><span class="parameter ">iOSTrueTimeManager<span class="token operator">: </span><a href="../com.lastlock.bridge.core.util/-i-true-time-manager/index.html">ITrueTimeManager</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <a href="../com.lastlock.bridge.core.network/-connectivity-listener/index.html">ConnectivityListener</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-534804227%2FClasslikes%2F2074461332" anchor-label="DeviceTaskExecutor" id="-534804227%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-device-task-executor/index.html"><span>Device</span><wbr><span>Task</span><wbr><span><span>Executor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-534804227%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-device-task-executor/index.html">DeviceTaskExecutor</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1742387658%2FClasslikes%2F2074461332" anchor-label="InstallOOBError" id="-1742387658%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-install-o-o-b-error/index.html"><span>Install</span><wbr><span><span>OOBError</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742387658%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-install-o-o-b-error/index.html">InstallOOBError</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-install-o-o-b-error/index.html">InstallOOBError</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Why the bridge dropped an install OOB. Show <a href="-install-o-o-b-error/display-text.html">displayText</a> to the user: <a href="../../bridge/com.lastlock.bridge.proxy/-install-o-o-b-error/--root--.html">code</a> lets support identify the cause, so never renumber or reuse a code.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1248131589%2FClasslikes%2F2074461332" anchor-label="InstallOOBFailures" id="-1248131589%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-install-o-o-b-failures/index.html"><span>Install</span><wbr><span><span>OOBFailures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1248131589%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-install-o-o-b-failures/index.html">InstallOOBFailures</a></div><div class="brief "><p class="paragraph">Install OOBs the bridge dropped, by device. The message stream managers record a drop here so <a href="-b-l-e-proxy/deliver-install-o-o-b-and-wait-for-mode.html">BLEProxy.deliverInstallOOBAndWaitForMode</a> can fail with the reason instead of timing out.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-421252793%2FClasslikes%2F2074461332" anchor-label="InstallOOBResult" id="-421252793%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-install-o-o-b-result/index.html"><span>Install</span><wbr><span><span>OOBResult</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-421252793%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-install-o-o-b-result/index.html">InstallOOBResult</a></div><div class="brief "><p class="paragraph">Result of deliverInstallOOBAndWaitForMode. Success: device entered install/DFU mode; device is the peripheral to use for DFU if needed. Timeout: did not see install/DFU mode within the timeout. Failure: the bridge received the install OOB but could not deliver it; <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/index.html">error</a> says why.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="82560228%2FClasslikes%2F2074461332" anchor-label="IOSMessageStreamManager" id="82560228%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-o-s-message-stream-manager/index.html"><span>IOSMessage</span><wbr><span>Stream</span><wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="82560228%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-i-o-s-message-stream-manager/index.html">IOSMessageStreamManager</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-731821787%2FClasslikes%2F2074461332" anchor-label="MessageStreamManager" id="-731821787%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-stream-manager/index.html"><span>Message</span><wbr><span>Stream</span><wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-731821787%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-message-stream-manager/index.html">MessageStreamManager</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="686217114%2FClasslikes%2F2074461332" anchor-label="OOBWrapper" id="686217114%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-o-o-b-wrapper/index.html"><span><span>OOBWrapper</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="686217114%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-o-o-b-wrapper/index.html">OOBWrapper</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="57483155%2FClasslikes%2F2074461332" anchor-label="ProxyDevice" id="57483155%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-proxy-device/index.html"><span>Proxy</span><wbr><span><span>Device</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="57483155%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-proxy-device/index.html">ProxyDevice</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>peripheral<span class="token operator">: </span><a href="../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>proxyTaskQueue<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.proxyOperationQueue/-task-queue/index.html">TaskQueue</a><span class="token operator"> = </span>TaskQueue()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>internalCache<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.proxyOperationQueue/-bridge-cache/index.html">BridgeCache</a><span class="token operator"> = </span>BridgeCache()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>taskExecutor<span class="token operator">: </span><a href="-device-task-executor/index.html">DeviceTaskExecutor</a><span class="token operator"> = </span>DeviceTaskExecutor()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>batteryStatusLow<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">cachedDevicePayloadChunks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastSuccessfulOOBTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastDiscoveryTime<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>isBlacklisted<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>inInstallMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>inDFUMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastHeartbeatSentTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastHeartbeatAdvData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastRssi<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents a BLE Device and its associated properties and operations.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1806208600%2FClasslikes%2F2074461332" anchor-label="ProxyProvider" id="1806208600%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-proxy-provider/index.html"><span>Proxy</span><wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1806208600%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-proxy-provider/index.html">ProxyProvider</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageStreamManager<span class="token operator">: </span><a href="-i-o-s-message-stream-manager/index.html">IOSMessageStreamManager</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">heartbeatParser<span class="token operator">: </span><a href="../com.lastlock.bridge.bluelink.util/-i-heartbeat-parser/index.html">IHeartbeatParser</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">iOSTrueTimeManager<span class="token operator">: </span><a href="../com.lastlock.bridge.core.util/-i-true-time-manager/index.html">ITrueTimeManager</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span> : <span data-unresolved-link="org.koin.core.component/KoinComponent///PointingToDeclaration/">KoinComponent</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-327059193%2FClasslikes%2F2074461332" anchor-label="ServerResponse" id="-327059193%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-server-response/index.html"><span>Server</span><wbr><span><span>Response</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-327059193%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-server-response/index.html">ServerResponse</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>stateUpdates<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="-server-response-state-update/index.html">ServerResponseStateUpdate</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents the full server response.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1353454145%2FClasslikes%2F2074461332" anchor-label="ServerResponseStateUpdate" id="1353454145%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-server-response-state-update/index.html"><span>Server</span><wbr><span>Response</span><wbr><span>State</span><wbr><span><span>Update</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1353454145%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="-server-response-state-update/index.html">ServerResponseStateUpdate</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>psc<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>dsc<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>isAck<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents an update within the server response.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-922392876%2FClasslikes%2F2074461332" anchor-label="StreamInactiveForPushException" id="-922392876%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-stream-inactive-for-push-exception/index.html"><span>Stream</span><wbr><span>Inactive</span><wbr><span>For</span><wbr><span>Push</span><wbr><span><span>Exception</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-922392876%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-stream-inactive-for-push-exception/index.html">StreamInactiveForPushException</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">message<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">"Plane stream is not connected"</span></span></span><span class="token punctuation">)</span> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-exception/index.html">Exception</a></div><div class="brief "><p class="paragraph">Raised when encrypted device payloads or heartbeats must not be sent because the plane stream is not connected.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-2085879604%2FProperties%2F2074461332" anchor-label="proxyModule" id="-2085879604%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="proxy-module.html"><span>proxy</span><wbr><span><span>Module</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2085879604%2FProperties%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="proxy-module.html">proxyModule</a><span class="token operator">: </span><span data-unresolved-link="org.koin.core.module/Module///PointingToDeclaration/">Module</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="975010095%2FFunctions%2F-752493160" anchor-label="provideMessageStreamManager" id="975010095%2FFunctions%2F-752493160" data-filterable-set=":bridge/commonMain,:bridge/androidMain,:bridge/appleMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain,:bridge/androidMain,:bridge/appleMain" data-filterable-set=":bridge/commonMain,:bridge/androidMain,:bridge/appleMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="provide-message-stream-manager.html"><span>provide</span><wbr><span>Message</span><wbr><span>Stream</span><wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="975010095%2FFunctions%2F-752493160"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted  with-platform-tabs" data-platform-hinted="data-platform-hinted">
+                    <div class="platform-bookmarks-row" data-toggle-list="data-toggle-list"><button class="platform-bookmark" data-filterable-current=":bridge/androidMain" data-filterable-set=":bridge/androidMain" data-active="" data-toggle=":bridge/androidMain">android</button><button class="platform-bookmark" data-filterable-current=":bridge/appleMain" data-filterable-set=":bridge/appleMain" data-toggle=":bridge/appleMain">apple</button><button class="platform-bookmark" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain" data-toggle=":bridge/commonMain">common</button></div>
+<div class="content sourceset-dependent-content" data-togglable=":bridge/androidMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="provide-message-stream-manager.html"><span class="token function">provideMessageStreamManager</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">persistenceManager<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.persistence/-persistence-manager/index.html">PersistenceManager</a><span class="token punctuation">, </span></span><span class="parameter ">messageStreamManager<span class="token operator">: </span><a href="-i-o-s-message-stream-manager/index.html">IOSMessageStreamManager</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">oobStateFlow<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableSharedFlow///PointingToDeclaration/">MutableSharedFlow</span><span class="token operator">&lt;</span><a href="-o-o-b-wrapper/index.html">OOBWrapper</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">proxyUpdateFlow<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableSharedFlow///PointingToDeclaration/">MutableSharedFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-message-stream-manager/index.html">MessageStreamManager</a></div></div><div class="content sourceset-dependent-content" data-togglable=":bridge/appleMain"><div class="symbol monospace"><span class="token keyword">actual </span><span class="token keyword">fun </span><a href="provide-message-stream-manager.html"><span class="token function">provideMessageStreamManager</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">persistenceManager<span class="token operator">: </span><a href="../../bridge/com.lastlock.bridge.proxy.persistence/-persistence-manager/index.html">PersistenceManager</a><span class="token punctuation">, </span></span><span class="parameter ">messageStreamManager<span class="token operator">: </span><a href="../../bridge/com.lastlock.bridge.proxy/-i-o-s-message-stream-manager/index.html">IOSMessageStreamManager</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">oobStateFlow<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableSharedFlow///PointingToDeclaration/">MutableSharedFlow</span><span class="token operator">&lt;</span><a href="../../bridge/com.lastlock.bridge.proxy/-o-o-b-wrapper/index.html">OOBWrapper</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">proxyUpdateFlow<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableSharedFlow///PointingToDeclaration/">MutableSharedFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../bridge/com.lastlock.bridge.proxy/-message-stream-manager/index.html">MessageStreamManager</a></div></div><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">expect </span><span class="token keyword">fun </span><a href="provide-message-stream-manager.html"><span class="token function">provideMessageStreamManager</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">persistenceManager<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.persistence/-persistence-manager/index.html">PersistenceManager</a><span class="token punctuation">, </span></span><span class="parameter ">messageStreamManager<span class="token operator">: </span><a href="-i-o-s-message-stream-manager/index.html">IOSMessageStreamManager</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">oobStateFlow<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableSharedFlow///PointingToDeclaration/">MutableSharedFlow</span><span class="token operator">&lt;</span><a href="-o-o-b-wrapper/index.html">OOBWrapper</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">proxyUpdateFlow<span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/MutableSharedFlow///PointingToDeclaration/">MutableSharedFlow</span><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-message-stream-manager/index.html">MessageStreamManager</a></div></div>                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+<script id="sdk-version-script">
+(function(){
+  function getSdkVersion(){
+    var match = window.location.pathname.match(/\/sdk-api\/(?:ios|android)\/([^\/]+)/i);
+    return match ? decodeURIComponent(match[1]) : 'latest';
+  }
+  function inject(){
+    var nav = document.querySelector('.navigation');
+    var brand = nav ? nav.querySelector('.library-name--link') : null;
+    if(!nav || !brand) return;
+    var existing = nav.querySelector('.doc-version-badge');
+    if(existing){
+      existing.textContent = 'SDK ' + getSdkVersion();
+      return;
+    }
+    var badge = document.createElement('span');
+    badge.className = 'doc-version-badge';
+    badge.textContent = 'SDK ' + getSdkVersion();
+    brand.insertAdjacentElement('afterend', badge);
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
+</script>
+<script id="link-dokka-branding-script">
+(function(){
+  var logoHref = '../../branding/logo.png';
+  var faviconHref = '../../branding/favicon.svg';
+  var genericTitle = 'LinkMobile | Documentation';
+  function setFavicon(){
+    var head = document.head;
+    if(!head) return;
+    Array.from(head.querySelectorAll('link[rel*="icon"]')).forEach(function(node){ node.remove(); });
+    var icon = document.createElement('link');
+    icon.id = 'link-favicon';
+    icon.rel = 'icon';
+    icon.href = faviconHref;
+    icon.type = 'image/svg+xml';
+    head.appendChild(icon);
+    var shortcutIcon = document.createElement('link');
+    shortcutIcon.rel = 'shortcut icon';
+    shortcutIcon.href = faviconHref;
+    shortcutIcon.type = 'image/svg+xml';
+    head.appendChild(shortcutIcon);
+  }
+  function normalizeHeader(){
+    var brand = document.querySelector('.navigation .library-name--link');
+    if(!brand) return;
+    brand.setAttribute('href', '/');
+    brand.replaceChildren();
+    var logo = document.createElement('img');
+    logo.className = 'doc-logo';
+    logo.src = logoHref;
+    logo.alt = 'Link logo';
+    var text = document.createElement('span');
+    text.textContent = 'LinkMobile';
+    brand.appendChild(logo);
+    brand.appendChild(text);
+  }
+  function getHeadingText(){
+    var heading = document.querySelector('h1');
+    return heading ? heading.textContent.trim() : '';
+  }
+  function getSignatureText(){
+    var candidates = Array.from(document.querySelectorAll('.cover code, .cover pre, .symbol, pre, code'));
+    for (var i = 0; i < candidates.length; i++) {
+      var text = (candidates[i].textContent || '').trim();
+      if (text) return text.replace(/\s+/g, ' ');
+    }
+    return '';
+  }
+  function isMemberPage(signature){
+    return /^(suspend\s+fun|fun|val|var|constructor)\b/.test(signature);
+  }
+  function setTitle(){
+    var heading = getHeadingText();
+    var signature = getSignatureText();
+    document.title = heading && isMemberPage(signature)
+      ? heading + ' | ' + genericTitle
+      : genericTitle;
+  }
+  function applyBranding(){
+    setFavicon();
+    normalizeHeader();
+    setTitle();
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyBranding);
+  } else {
+    applyBranding();
+  }
+})();
+</script>
+</body>
+</html>

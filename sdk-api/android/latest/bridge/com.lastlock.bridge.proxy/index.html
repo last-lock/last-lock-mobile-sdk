@@ -207,6 +207,36 @@
               </div>
             </div>
           </div>
+<a data-name="-1742387658%2FClasslikes%2F2074461332" anchor-label="InstallOOBError" id="-1742387658%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-install-o-o-b-error/index.html"><span>Install</span><wbr><span><span>OOBError</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1742387658%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-install-o-o-b-error/index.html">InstallOOBError</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="-install-o-o-b-error/index.html">InstallOOBError</a><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">Why the bridge dropped an install OOB. Show <a href="-install-o-o-b-error/display-text.html">displayText</a> to the user: <a href="../../bridge/com.lastlock.bridge.proxy/-install-o-o-b-error/--root--.html">code</a> lets support identify the cause, so never renumber or reuse a code.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1248131589%2FClasslikes%2F2074461332" anchor-label="InstallOOBFailures" id="-1248131589%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-install-o-o-b-failures/index.html"><span>Install</span><wbr><span><span>OOBFailures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1248131589%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-install-o-o-b-failures/index.html">InstallOOBFailures</a></div><div class="brief "><p class="paragraph">Install OOBs the bridge dropped, by device. The message stream managers record a drop here so <a href="-b-l-e-proxy/deliver-install-o-o-b-and-wait-for-mode.html">BLEProxy.deliverInstallOOBAndWaitForMode</a> can fail with the reason instead of timing out.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-421252793%2FClasslikes%2F2074461332" anchor-label="InstallOOBResult" id="-421252793%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
           <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
             <div class="main-subrow keyValue ">
@@ -217,7 +247,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-install-o-o-b-result/index.html">InstallOOBResult</a></div><div class="brief "><p class="paragraph">Result of deliverInstallOOBAndWaitForMode. Success: device entered install/DFU mode; device is the peripheral to use for DFU if needed. Timeout: did not see install/DFU mode within the timeout. Failure: OOB delivery or other error.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-install-o-o-b-result/index.html">InstallOOBResult</a></div><div class="brief "><p class="paragraph">Result of deliverInstallOOBAndWaitForMode. Success: device entered install/DFU mode; device is the peripheral to use for DFU if needed. Timeout: did not see install/DFU mode within the timeout. Failure: the bridge received the install OOB but could not deliver it; <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/index.html">error</a> says why.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -278,21 +308,6 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="-proxy-device/index.html">ProxyDevice</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>peripheral<span class="token operator">: </span><a href="../com.lastlock.bridge.bluelink/-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>proxyTaskQueue<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.proxyOperationQueue/-task-queue/index.html">TaskQueue</a><span class="token operator"> = </span>TaskQueue()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>internalCache<span class="token operator">: </span><a href="../com.lastlock.bridge.proxy.proxyOperationQueue/-bridge-cache/index.html">BridgeCache</a><span class="token operator"> = </span>BridgeCache()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>taskExecutor<span class="token operator">: </span><a href="-device-task-executor/index.html">DeviceTaskExecutor</a><span class="token operator"> = </span>DeviceTaskExecutor()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>batteryStatusLow<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">cachedDevicePayloadChunks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastSuccessfulOOBTimestamp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastDiscoveryTime<span class="token operator">: </span><span data-unresolved-link="kotlinx.datetime/Instant///PointingToDeclaration/">Instant</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>isBlacklisted<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>inInstallMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>inDFUMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastHeartbeatSentTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastHeartbeatAdvData<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>lastRssi<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Represents a BLE Device and its associated properties and operations.</p></div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-<a data-name="1951011088%2FClasslikes%2F2074461332" anchor-label="ProxyPayloadOffloadStatus" id="1951011088%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
-          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
-            <div class="main-subrow keyValue ">
-              <div class=""><span class="inline-flex">
-                  <div><a href="-proxy-payload-offload-status/index.html"><span>Proxy</span><wbr><span>Payload</span><wbr><span>Offload</span><wbr><span><span>Status</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1951011088%2FClasslikes%2F2074461332"></span>
-                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                  </span></span></div>
-              <div>
-                <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">sealed </span><span class="token keyword">class </span><a href="-proxy-payload-offload-status/index.html">ProxyPayloadOffloadStatus</a></div></div></div>
                 </div>
               </div>
             </div>

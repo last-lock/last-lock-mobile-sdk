@@ -1,0 +1,614 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>LinkMobile | Documentation</title>
+<script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>    <link id="link-favicon" rel="icon" href="../../../branding/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../../branding/favicon.svg" type="image/svg+xml">
+<link href="../../../styles/dokka-custom.css" rel="Stylesheet">
+<style id="link-dokka-inline-branding">
+.navigation .doc-version-badge {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+:root {
+  --dokka-logo-image-url: none !important;
+  --dokka-logo-height: 0 !important;
+  --dokka-logo-width: 0 !important;
+}
+.navigation .library-name--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.navigation .library-name--link > img:not(.doc-logo),
+.navigation .library-name--link [class*="kotlin"],
+.navigation .library-name--link [class*="dokka"] {
+  display: none !important;
+}
+.navigation .library-name--link::before,
+.navigation .library-name--link::after {
+  content: none !important;
+  background: none !important;
+}
+.navigation .library-name--link .doc-logo {
+  height: 18px;
+  width: 18px;
+  flex: 0 0 18px;
+  display: block;
+  object-fit: contain;
+}
+</style>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="/" tabindex="1">
+                    <img class="doc-logo" src="../../../branding/logo.png" alt="Link logo">
+                    <span>LinkMobile</span>
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true" data-filter=":bridge/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":bridge/commonMain" data-filter=":bridge/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    LinkMobile
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="bridge::com.lastlock.bridge.credlink.crypto/CredLinkCryptoHandler///PointingToDeclaration//2074461332">
+  <div class="breadcrumbs"><a href="../../index.html">bridge</a><span class="delimiter">/</span><a href="../index.html">com.lastlock.bridge.credlink.crypto</a><span class="delimiter">/</span><span class="current">CredLinkCryptoHandler</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cred</span><wbr><span>Link</span><wbr><span>Crypto</span><wbr><span><span>Handler</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">CredLinkCryptoHandler</a></div><p class="paragraph">Platform-native CredLink cryptography and key material handling. Android uses Keystore + BouncyCastle; iOS uses CryptoKit + Keychain via Swift adapters.</p><p class="paragraph">Implementations produce PKOC wire payloads only; CredLinkExchangeStateMachine performs GATT writes.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-399539155%2FFunctions%2F2074461332" anchor-label="buildLegacyBridgeEphemeralKeyPayload" id="-399539155%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-legacy-bridge-ephemeral-key-payload.html"><span>build</span><wbr><span>Legacy</span><wbr><span>Bridge</span><wbr><span>Ephemeral</span><wbr><span>Key</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-399539155%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="build-legacy-bridge-ephemeral-key-payload.html"><span class="token function">buildLegacyBridgeEphemeralKeyPayload</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PKOC step B (phone side): generates a fresh P-256 ephemeral key pair, stores it, and returns the bridge ephemeral public key write payload (TLV tag <code class="lang-kotlin">0x07</code>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-430148681%2FFunctions%2F2074461332" anchor-label="buildLegacyEncryptedAuthenticationPayload" id="-430148681%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-legacy-encrypted-authentication-payload.html"><span>build</span><wbr><span>Legacy</span><wbr><span>Encrypted</span><wbr><span>Authentication</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-430148681%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="build-legacy-encrypted-authentication-payload.html"><span class="token function">buildLegacyEncryptedAuthenticationPayload</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a><span class="token punctuation">, </span></span><span class="parameter ">lockSignature<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">isTimeSync<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">trueTimeManager<span class="token operator">: </span><a href="../../com.lastlock.bridge.core.util/-i-true-time-manager/index.html">ITrueTimeManager</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PKOC step C (phone side): verifies the lock signature, signs the authentication message, and returns the AES-GCM encrypted write payload (IV + ciphertext TLVs).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-272869681%2FFunctions%2F2074461332" anchor-label="buildLegacyExchangeInitiatorPayload" id="-272869681%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-legacy-exchange-initiator-payload.html"><span>build</span><wbr><span>Legacy</span><wbr><span>Exchange</span><wbr><span>Initiator</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-272869681%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="build-legacy-exchange-initiator-payload.html"><span class="token function">buildLegacyExchangeInitiatorPayload</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">operationType<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation-type/index.html">BlueLinkOperationType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Builds Legacy credential exchange step-A initiator TLVs: long-term public key (tag <code class="lang-kotlin">0x01</code>) and time-sync flag (tag <code class="lang-kotlin">0x09</code>).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-301833936%2FFunctions%2F2074461332" anchor-label="buildPresentationInitiationPayload" id="-301833936%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-presentation-initiation-payload.html"><span>build</span><wbr><span>Presentation</span><wbr><span>Initiation</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-301833936%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="build-presentation-initiation-payload.html"><span class="token function">buildPresentationInitiationPayload</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a><span class="token punctuation">, </span></span><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">First step for Token Unlock flow. This function initiates the  Function builds the token-unlock Initiation payload using the keypair persisted in secure enclave linked to the provided phoneKeyAlias. Function also generates transaction ephemeral keys and persists that in session memory for use</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-230734531%2FFunctions%2F2074461332" anchor-label="buildPresentationPresentPayload" id="-230734531%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build-presentation-present-payload.html"><span>build</span><wbr><span>Presentation</span><wbr><span>Present</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-230734531%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="build-presentation-present-payload.html"><span class="token function">buildPresentationPresentPayload</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a><span class="token punctuation">, </span></span><span class="parameter ">challengeBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">tokenUnlockPass<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink.interfaces/-token-unlock-pass/index.html">TokenUnlockPass</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Using the <code class="lang-kotlin">TokenUnlockPass</code>, function fetches the access documents for the reader's reader group identifier and builds the encrypted PresentationPresent payload and sends it to the device. Note: Function uses the ephemeral keys as the secure credentials for encryption.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1187147759%2FFunctions%2F2074461332" anchor-label="clearAllDevices" id="1187147759%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-all-devices.html"><span>clear</span><wbr><span>All</span><wbr><span><span>Devices</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1187147759%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="clear-all-devices.html"><span class="token function">clearAllDevices</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1873158086%2FFunctions%2F2074461332" anchor-label="clearDevice" id="1873158086%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-device.html"><span>clear</span><wbr><span><span>Device</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1873158086%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="clear-device.html"><span class="token function">clearDevice</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-946358190%2FFunctions%2F2074461332" anchor-label="deleteLongTermKeyPair" id="-946358190%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-long-term-key-pair.html"><span>delete</span><wbr><span>Long</span><wbr><span>Term</span><wbr><span>Key</span><wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-946358190%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="delete-long-term-key-pair.html"><span class="token function">deleteLongTermKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="717412143%2FFunctions%2F2074461332" anchor-label="deleteTokenUnlockPass" id="717412143%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-token-unlock-pass.html"><span>delete</span><wbr><span>Token</span><wbr><span>Unlock</span><wbr><span><span>Pass</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="717412143%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="delete-token-unlock-pass.html"><span class="token function">deleteTokenUnlockPass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Deletes the persisted token unlock pass persisted at the provided phoneKeyAlias in the bridge's secure enclave, returning a boolean value indicating success</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2028586830%2FFunctions%2F2074461332" anchor-label="extractWirePublicKey" id="2028586830%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="extract-wire-public-key.html"><span>extract</span><wbr><span>Wire</span><wbr><span>Public</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2028586830%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="extract-wire-public-key.html"><span class="token function">extractWirePublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">encodedPublicKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1198370070%2FFunctions%2F2074461332" anchor-label="fetchTokenUnlockPass" id="1198370070%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fetch-token-unlock-pass.html"><span>fetch</span><wbr><span>Token</span><wbr><span>Unlock</span><wbr><span><span>Pass</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1198370070%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="fetch-token-unlock-pass.html"><span class="token function">fetchTokenUnlockPass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink.interfaces/-token-unlock-pass/index.html">TokenUnlockPass</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Fetches the persisted Token Unlock pass persisted at the provided phoneKeyAlias in the bridge's secure enclave. Null is returned if no pass is found for the provided <code class="lang-kotlin">phoneKeyAlias</code> Note: Secure access document data is decrypted after fetching</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1007059716%2FFunctions%2F2074461332" anchor-label="generateLongTermKeyPair" id="-1007059716%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="generate-long-term-key-pair.html"><span>generate</span><wbr><span>Long</span><wbr><span>Term</span><wbr><span>Key</span><wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1007059716%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="generate-long-term-key-pair.html"><span class="token function">generateLongTermKeyPair</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-pair/index.html">Pair</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="144525246%2FFunctions%2F2074461332" anchor-label="getPrivateKeyEncoded" id="144525246%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-private-key-encoded.html"><span>get</span><wbr><span>Private</span><wbr><span>Key</span><wbr><span><span>Encoded</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="144525246%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-private-key-encoded.html"><span class="token function">getPrivateKeyEncoded</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1489992058%2FFunctions%2F2074461332" anchor-label="getPublicKeyEncoded" id="1489992058%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-public-key-encoded.html"><span>get</span><wbr><span>Public</span><wbr><span>Key</span><wbr><span><span>Encoded</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1489992058%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-public-key-encoded.html"><span class="token function">getPublicKeyEncoded</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1503402250%2FFunctions%2F2074461332" anchor-label="hasLongTermPrivateKey" id="1503402250%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-long-term-private-key.html"><span>has</span><wbr><span>Long</span><wbr><span>Term</span><wbr><span>Private</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1503402250%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="has-long-term-private-key.html"><span class="token function">hasLongTermPrivateKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">True when a long-term private key is present for <a href="has-long-term-private-key.html">phoneKeysAlias</a> (may not be exportable).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-189422174%2FFunctions%2F2074461332" anchor-label="onDeviceEphemeralKeyReceived" id="-189422174%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-device-ephemeral-key-received.html"><span>on</span><wbr><span>Device</span><wbr><span>Ephemeral</span><wbr><span>Key</span><wbr><span><span>Received</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-189422174%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="on-device-ephemeral-key-received.html"><span class="token function">onDeviceEphemeralKeyReceived</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a><span class="token punctuation">, </span></span><span class="parameter ">ephemeralKeyBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">PKOC step A (phone side): handler for processing device's ephemeral key bytes</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1843387862%2FFunctions%2F2074461332" anchor-label="parsePresentationResultPayload" id="1843387862%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="parse-presentation-result-payload.html"><span>parse</span><wbr><span>Presentation</span><wbr><span>Result</span><wbr><span><span>Payload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1843387862%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="parse-presentation-result-payload.html"><span class="token function">parsePresentationResultPayload</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a><span class="token punctuation">, </span></span><span class="parameter ">resultBytes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink.enums/-credential-exchange-result/index.html">CredentialExchangeResult</a></div><div class="brief "><p class="paragraph">Accepts the encrypted <code class="lang-kotlin">PresentationPayload</code> from the device and decrypts it using the transaction ephemeral keys to get the Token Unlock credential exchange response. Note: Incomplete results are treated as access denied responses.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-190534540%2FFunctions%2F2074461332" anchor-label="publicKeyToHex" id="-190534540%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="public-key-to-hex.html"><span>public</span><wbr><span>Key</span><wbr><span>To</span><wbr><span><span>Hex</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-190534540%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="public-key-to-hex.html"><span class="token function">publicKeyToHex</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">wirePublicKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1943100104%2FFunctions%2F2074461332" anchor-label="purgeExpiredTokenUnlockPasses" id="1943100104%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="purge-expired-token-unlock-passes.html"><span>purge</span><wbr><span>Expired</span><wbr><span>Token</span><wbr><span>Unlock</span><wbr><span><span>Passes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1943100104%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="purge-expired-token-unlock-passes.html"><span class="token function">purgeExpiredTokenUnlockPasses</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aliasPrefix<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">nowEpochSeconds<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1609721633%2FFunctions%2F2074461332" anchor-label="registerDevice" id="-1609721633%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-device.html"><span>register</span><wbr><span><span>Device</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1609721633%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="register-device.html"><span class="token function">registerDevice</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink/-cred-link-device/index.html">CredLinkDevice</a><span class="token punctuation">, </span></span><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Shared Crypto Functions</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1689426528%2FFunctions%2F2074461332" anchor-label="saveLongTermKeyPair" id="1689426528%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="save-long-term-key-pair.html"><span>save</span><wbr><span>Long</span><wbr><span>Term</span><wbr><span>Key</span><wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1689426528%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="save-long-term-key-pair.html"><span class="token function">saveLongTermKeyPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">publicKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">privateKey<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-571244457%2FFunctions%2F2074461332" anchor-label="storeTokenUnlockPass" id="-571244457%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="store-token-unlock-pass.html"><span>store</span><wbr><span>Token</span><wbr><span>Unlock</span><wbr><span><span>Pass</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-571244457%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="store-token-unlock-pass.html"><span class="token function">storeTokenUnlockPass</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">phoneKeysAlias<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">pass<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink.interfaces/-token-unlock-pass/index.html">TokenUnlockPass</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Accepts the secure Token Unlock pass and persists this in the bridge's secure enclave under the provided <code class="lang-kotlin">phoneKeyAlias</code> and returns a boolean value indicating success persisting the pass. Note: Secure access document data is encrypted before storing for security reasons</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-87221517%2FFunctions%2F2074461332" anchor-label="tokenUnlockVerifyAndExtractReaderPublicKey" id="-87221517%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="token-unlock-verify-and-extract-reader-public-key.html"><span>token</span><wbr><span>Unlock</span><wbr><span>Verify</span><wbr><span>And</span><wbr><span>Extract</span><wbr><span>Reader</span><wbr><span>Public</span><wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-87221517%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><a href="token-unlock-verify-and-extract-reader-public-key.html"><span class="token function">tokenUnlockVerifyAndExtractReaderPublicKey</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">readerCertificate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">readerGroupIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">readerGroupSubIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">tokenUnlockPass<span class="token operator">: </span><a href="../../com.lastlock.bridge.credlink.interfaces/-token-unlock-pass/index.html">TokenUnlockPass</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Verifies the lock's provided reader certificate for the requested reader group and returns the P-256 uncompressed public key for the reader cert. Function also accepts reader group data via <code class="lang-kotlin">TokenUnlockPass</code>. Function returns null if trust cannot be verified with the device / if the reader groups list does not contain device's reader group identifier.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+<script id="sdk-version-script">
+(function(){
+  function getSdkVersion(){
+    var match = window.location.pathname.match(/\/sdk-api\/(?:ios|android)\/([^\/]+)/i);
+    return match ? decodeURIComponent(match[1]) : 'latest';
+  }
+  function inject(){
+    var nav = document.querySelector('.navigation');
+    var brand = nav ? nav.querySelector('.library-name--link') : null;
+    if(!nav || !brand) return;
+    var existing = nav.querySelector('.doc-version-badge');
+    if(existing){
+      existing.textContent = 'SDK ' + getSdkVersion();
+      return;
+    }
+    var badge = document.createElement('span');
+    badge.className = 'doc-version-badge';
+    badge.textContent = 'SDK ' + getSdkVersion();
+    brand.insertAdjacentElement('afterend', badge);
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
+</script>
+<script id="link-dokka-branding-script">
+(function(){
+  var logoHref = '../../../branding/logo.png';
+  var faviconHref = '../../../branding/favicon.svg';
+  var genericTitle = 'LinkMobile | Documentation';
+  function setFavicon(){
+    var head = document.head;
+    if(!head) return;
+    Array.from(head.querySelectorAll('link[rel*="icon"]')).forEach(function(node){ node.remove(); });
+    var icon = document.createElement('link');
+    icon.id = 'link-favicon';
+    icon.rel = 'icon';
+    icon.href = faviconHref;
+    icon.type = 'image/svg+xml';
+    head.appendChild(icon);
+    var shortcutIcon = document.createElement('link');
+    shortcutIcon.rel = 'shortcut icon';
+    shortcutIcon.href = faviconHref;
+    shortcutIcon.type = 'image/svg+xml';
+    head.appendChild(shortcutIcon);
+  }
+  function normalizeHeader(){
+    var brand = document.querySelector('.navigation .library-name--link');
+    if(!brand) return;
+    brand.setAttribute('href', '/');
+    brand.replaceChildren();
+    var logo = document.createElement('img');
+    logo.className = 'doc-logo';
+    logo.src = logoHref;
+    logo.alt = 'Link logo';
+    var text = document.createElement('span');
+    text.textContent = 'LinkMobile';
+    brand.appendChild(logo);
+    brand.appendChild(text);
+  }
+  function getHeadingText(){
+    var heading = document.querySelector('h1');
+    return heading ? heading.textContent.trim() : '';
+  }
+  function getSignatureText(){
+    var candidates = Array.from(document.querySelectorAll('.cover code, .cover pre, .symbol, pre, code'));
+    for (var i = 0; i < candidates.length; i++) {
+      var text = (candidates[i].textContent || '').trim();
+      if (text) return text.replace(/\s+/g, ' ');
+    }
+    return '';
+  }
+  function isMemberPage(signature){
+    return /^(suspend\s+fun|fun|val|var|constructor)\b/.test(signature);
+  }
+  function setTitle(){
+    var heading = getHeadingText();
+    var signature = getSignatureText();
+    document.title = heading && isMemberPage(signature)
+      ? heading + ' | ' + genericTitle
+      : genericTitle;
+  }
+  function applyBranding(){
+    setFavicon();
+    normalizeHeader();
+    setTitle();
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyBranding);
+  } else {
+    applyBranding();
+  }
+})();
+</script>
+</body>
+</html>

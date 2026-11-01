@@ -1,0 +1,46 @@
+.navigation .doc-version-badge {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+
+/* Replace Dokka/Kotlin mark with Link branding in the top nav. */
+:root {
+  --dokka-logo-image-url: none !important;
+  --dokka-logo-height: 0 !important;
+  --dokka-logo-width: 0 !important;
+}
+
+.navigation .library-name--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation .library-name--link > img:not(.doc-logo),
+.navigation .library-name--link [class*="kotlin"],
+.navigation .library-name--link [class*="dokka"] {
+  display: none !important;
+}
+
+.navigation .library-name--link::before,
+.navigation .library-name--link::after {
+  content: none !important;
+  background: none !important;
+}
+
+.navigation .library-name--link .doc-logo {
+  height: 18px;
+  width: 18px;
+  flex: 0 0 18px;
+  display: block;
+  object-fit: contain;
+}

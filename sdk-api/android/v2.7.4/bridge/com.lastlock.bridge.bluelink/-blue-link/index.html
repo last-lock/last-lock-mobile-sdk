@@ -1,0 +1,701 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>LinkMobile | Documentation</title>
+<script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>    <link id="link-favicon" rel="icon" href="../../../branding/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="../../../branding/favicon.svg" type="image/svg+xml">
+<link href="../../../styles/dokka-custom.css" rel="Stylesheet">
+<style id="link-dokka-inline-branding">
+.navigation .doc-version-badge {
+  margin-left: 10px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(127, 127, 127, 0.45);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+:root {
+  --dokka-logo-image-url: none !important;
+  --dokka-logo-height: 0 !important;
+  --dokka-logo-width: 0 !important;
+}
+.navigation .library-name--link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.navigation .library-name--link > img:not(.doc-logo),
+.navigation .library-name--link [class*="kotlin"],
+.navigation .library-name--link [class*="dokka"] {
+  display: none !important;
+}
+.navigation .library-name--link::before,
+.navigation .library-name--link::after {
+  content: none !important;
+  background: none !important;
+}
+.navigation .library-name--link .doc-logo {
+  height: 18px;
+  width: 18px;
+  flex: 0 0 18px;
+  display: block;
+  object-fit: contain;
+}
+</style>
+</head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="/" tabindex="1">
+                    <img class="doc-logo" src="../../../branding/logo.png" alt="Link logo">
+                    <span>LinkMobile</span>
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector common-like" data-active="" aria-pressed="true" data-filter=":bridge/commonMain">common</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option common-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":bridge/commonMain" data-filter=":bridge/commonMain">
+                                <span class="checkbox--icon"></span>
+                                common
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    LinkMobile
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="bridge::com.lastlock.bridge.bluelink/BlueLink///PointingToDeclaration//2074461332">
+  <div class="breadcrumbs"><a href="../../index.html">bridge</a><span class="delimiter">/</span><a href="../index.html">com.lastlock.bridge.bluelink</a><span class="delimiter">/</span><span class="current">BlueLink</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Blue</span><wbr><span><span>Link</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">BlueLink</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">iOSIHeartbeatParser<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.util/-i-heartbeat-parser/index.html">IHeartbeatParser</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><p class="paragraph">BlueLink class - Acts as an interface between the BlueLink library and implementers.</p><p class="paragraph">Handles device discovery, connection management, and BLE read/write operations, abstracting the details of BLE communication and fragmentation.</p><p class="paragraph">If a read or write operation is performed for a characteristic that is not present in the device, an appropriate BlueLinkOpFailReason will be returned. Implementation on handling of these failed scenarios is left up to the implementors. Once the implementor has handled the failing operation, it must call completeOperation() to mark the failed operation as complete</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-1913704760%2FConstructors%2F2074461332" anchor-label="BlueLink" id="-1913704760%2FConstructors%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-blue-link.html"><span>Blue</span><wbr><span><span>Link</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1913704760%2FConstructors%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">iOSIHeartbeatParser<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.util/-i-heartbeat-parser/index.html">IHeartbeatParser</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="tableheader">Types</h2>
+        <div class="table"><a data-name="-1982506743%2FClasslikes%2F2074461332" anchor-label="Companion" id="-1982506743%2FClasslikes%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1982506743%2FClasslikes%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-1864819817%2FProperties%2F2074461332" anchor-label="heartbeatJob" id="-1864819817%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="heartbeat-job.html"><span>heartbeat</span><wbr><span><span>Job</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1864819817%2FProperties%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">var </span><a href="heartbeat-job.html">heartbeatJob</a><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines/Job///PointingToDeclaration/">Job</span><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="610036775%2FProperties%2F2074461332" anchor-label="heartbeatParser" id="610036775%2FProperties%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="heartbeat-parser.html"><span>heartbeat</span><wbr><span><span>Parser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="610036775%2FProperties%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">val </span><a href="heartbeat-parser.html">heartbeatParser</a><span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.util/-i-heartbeat-parser/index.html">IHeartbeatParser</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="527055082%2FFunctions%2F2074461332" anchor-label="addListener" id="527055082%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-listener.html"><span>add</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="527055082%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-listener.html"><span class="token function">addListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.interfaces/-blue-link-event-listener/index.html">BlueLinkEventListener</a><span class="token punctuation">, </span></span><span class="parameter ">prependListener<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1275433931%2FFunctions%2F2074461332" anchor-label="completeActiveOperation" id="1275433931%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="complete-active-operation.html"><span>complete</span><wbr><span>Active</span><wbr><span><span>Operation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1275433931%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="complete-active-operation.html"><span class="token function">completeActiveOperation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1368382014%2FFunctions%2F2074461332" anchor-label="connectTo" id="1368382014%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect-to.html"><span>connect</span><wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1368382014%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="connect-to.html"><span class="token function">connectTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="147574413%2FFunctions%2F2074461332" anchor-label="disconnect" id="147574413%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="disconnect.html"><span><span>disconnect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="147574413%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="disconnect.html"><span class="token function">disconnect</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">peripheral<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1435801950%2FFunctions%2F2074461332" anchor-label="getFirmwareVersion" id="-1435801950%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-firmware-version.html"><span>get</span><wbr><span>Firmware</span><wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1435801950%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-firmware-version.html"><span class="token function">getFirmwareVersion</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-device-firmware-version/index.html">DeviceFirmwareVersion</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1888458793%2FFunctions%2F2074461332" anchor-label="getiOSCentralManager" id="1888458793%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="geti-o-s-central-manager.html"><span>geti</span><wbr><span>OSCentral</span><wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1888458793%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="geti-o-s-central-manager.html"><span class="token function">getiOSCentralManager</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1579568811%2FFunctions%2F2074461332" anchor-label="getPeripheral" id="1579568811%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-peripheral.html"><span>get</span><wbr><span><span>Peripheral</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1579568811%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-peripheral.html"><span class="token function">getPeripheral</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Returns the BLE peripheral currently tracked for <a href="get-peripheral.html">deviceId</a> (discovered during scan), or null if the lock has not been seen yet. Used by the Android manufacturing harness to resolve Pi <code class="lang-kotlin">CONNECT</code> commands to a real <a href="../-bluetooth-device/index.html">BluetoothDevice</a> before <a href="connect-to.html">connectTo</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-609515284%2FFunctions%2F2074461332" anchor-label="getSignalStrengthForDevice" id="-609515284%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-signal-strength-for-device.html"><span>get</span><wbr><span>Signal</span><wbr><span>Strength</span><wbr><span>For</span><wbr><span><span>Device</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-609515284%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-signal-strength-for-device.html"><span class="token function">getSignalStrengthForDevice</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.interfaces/-signal-strength/index.html">SignalStrength</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-639819333%2FFunctions%2F2074461332" anchor-label="operationComplete" id="-639819333%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="operation-complete.html"><span>operation</span><wbr><span><span>Complete</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-639819333%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="operation-complete.html"><span class="token function">operationComplete</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">operation<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation/index.html">BlueLinkOperation</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="605915259%2FFunctions%2F2074461332" anchor-label="queueOperation" id="605915259%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="queue-operation.html"><span>queue</span><wbr><span><span>Operation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="605915259%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="queue-operation.html"><span class="token function">queueOperation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">operation<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation/index.html">BlueLinkOperation</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="83177024%2FFunctions%2F2074461332" anchor-label="readFromPeripheralAndAssignActiveOperation" id="83177024%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="read-from-peripheral-and-assign-active-operation.html"><span>read</span><wbr><span>From</span><wbr><span>Peripheral</span><wbr><span>And</span><wbr><span>Assign</span><wbr><span>Active</span><wbr><span><span>Operation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="83177024%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="read-from-peripheral-and-assign-active-operation.html"><span class="token function">readFromPeripheralAndAssignActiveOperation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">characteristicUUID<span class="token operator">: </span><a href="../../com.lastlock.bridge.core.util/-u-u-i-d/index.html">UUID</a><span class="token punctuation">, </span></span><span class="parameter ">fragmentation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">operationType<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation-type/index.html">BlueLinkOperationType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-blue-link-operation-error/index.html">BlueLinkOperationError</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Reads data from a characteristic on the specified peripheral. Performs a BLE read operation from the peripheral while also maintaining an active BLE Read operation. To be used in places where multiple BLE reads are required for an operation to complete (eg: fragmented proxy read)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1824544383%2FFunctions%2F2074461332" anchor-label="readManufacturingSample" id="-1824544383%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="read-manufacturing-sample.html"><span>read</span><wbr><span>Manufacturing</span><wbr><span><span>Sample</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1824544383%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="read-manufacturing-sample.html"><span class="token function">readManufacturingSample</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">peripheral<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-blue-link-operation-error/index.html">BlueLinkOperationError</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph"><strong>INTERNAL TESTING ONLY, DO NOT USE</strong> Issues a single GATT read on the manufacturing data characteristic (<strong>6C4D</strong>, see <a href="../../com.lastlock.bridge.core.util/-u-u-i-d-utils/-manufacturing-char-u-u-i-d.html">UUIDUtils.ManufacturingCharUUID</a>). Results are delivered to <a href="../../com.lastlock.bridge.bluelink.interfaces/-blue-link-event-listener/on-characteristic-read.html">BlueLinkEventListener.onCharacteristicRead</a> after <span data-unresolved-link="com.lastlock.bridge.bluelink.listeners/BlueLinkPeripheralListenerImpl///PointingToDeclaration/">BlueLinkPeripheralListenerImpl</span> routes 6C4D payloads without treating them as heartbeat protobuf. The Android manufacturing bridge polls this on a fixed interval (e.g. 100ms), buffers payloads, and sends them to the Pi in one batch when the manufacturing session ends.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1520489319%2FFunctions%2F2074461332" anchor-label="removeListener" id="1520489319%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-listener.html"><span>remove</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1520489319%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-listener.html"><span class="token function">removeListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.interfaces/-blue-link-event-listener/index.html">BlueLinkEventListener</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1356150695%2FFunctions%2F2074461332" anchor-label="removeOperationByType" id="1356150695%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-operation-by-type.html"><span>remove</span><wbr><span>Operation</span><wbr><span>By</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1356150695%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-operation-by-type.html"><span class="token function">removeOperationByType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter ">operationType<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation-type/index.html">BlueLinkOperationType</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="890595154%2FFunctions%2F2074461332" anchor-label="removeOperations" id="890595154%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-operations.html"><span>remove</span><wbr><span><span>Operations</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="890595154%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-operations.html"><span class="token function">removeOperations</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter ">credentialExchangeOp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">proxyOp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">credLinkTimeSyncOp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">?</span><span class="token operator"> = </span><span class="token boolean">false</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-28812488%2FFunctions%2F2074461332" anchor-label="setIndicationConfig" id="-28812488%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-indication-config.html"><span>set</span><wbr><span>Indication</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-28812488%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-indication-config.html"><span class="token function">setIndicationConfig</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">characteristicUUID<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-blue-link-operation-error/index.html">BlueLinkOperationError</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Configures indications for a given characteristic.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1766811825%2FFunctions%2F2074461332" anchor-label="setManufacturingSession" id="1766811825%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-manufacturing-session.html"><span>set</span><wbr><span>Manufacturing</span><wbr><span><span>Session</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1766811825%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-manufacturing-session.html"><span class="token function">setManufacturingSession</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">deviceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-u-int/index.html">UInt</a><span class="token punctuation">, </span></span><span class="parameter ">active<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph"><strong>INTERNAL TESTING ONLY, DO NOT USE</strong> <strong>Manufacturing / bench capture:</strong> When <code class="lang-kotlin">active</code> is true, marks the tracked lock so BlueLink behaves like a “connection requested” session: <code class="lang-kotlin">DTQHandlers</code> will not auto-disconnect when the operation queue is empty (same idea as a lock asking to stay connected via advertisement). Also sets <code class="lang-kotlin">Device.suppressConnectionTimeoutForManufacturing</code> so the central connection monitor does not tear down a long-running GATT session after the normal idle timeout.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="581640649%2FFunctions%2F2074461332" anchor-label="setNotificationConfig" id="581640649%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-notification-config.html"><span>set</span><wbr><span>Notification</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="581640649%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-notification-config.html"><span class="token function">setNotificationConfig</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">characteristicUUID<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-blue-link-operation-error/index.html">BlueLinkOperationError</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Configures notifications for a given characteristic.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1293582676%2FFunctions%2F2074461332" anchor-label="startActiveWriteOperation" id="-1293582676%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-active-write-operation.html"><span>start</span><wbr><span>Active</span><wbr><span>Write</span><wbr><span><span>Operation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1293582676%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="start-active-write-operation.html"><span class="token function">startActiveWriteOperation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">characteristicUUID<span class="token operator">: </span><a href="../../com.lastlock.bridge.core.util/-u-u-i-d/index.html">UUID</a><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">fragmentation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">operationType<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation-type/index.html">BlueLinkOperationType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-blue-link-operation-error/index.html">BlueLinkOperationError</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Writes data to a characteristic on the specified peripheral, provided characteristic exists on peripheral to write</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2008233907%2FFunctions%2F2074461332" anchor-label="startBLEScan" id="-2008233907%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-b-l-e-scan.html"><span>start</span><wbr><span><span>BLEScan</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2008233907%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="start-b-l-e-scan.html"><span class="token function">startBLEScan</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">serviceUUIDs<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../../com.lastlock.bridge.core.util/-u-u-i-d/index.html">UUID</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">extraOptions<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token punctuation">, </span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Starts scanning for BLE peripherals.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="615156095%2FFunctions%2F2074461332" anchor-label="startHeartbeatJob" id="615156095%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-heartbeat-job.html"><span>start</span><wbr><span>Heartbeat</span><wbr><span><span>Job</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="615156095%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="start-heartbeat-job.html"><span class="token function">startHeartbeatJob</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Actively begins the heartbeat procedure for all connected devices at an interval specified in BlueLink.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="258033452%2FFunctions%2F2074461332" anchor-label="stopBLEScan" id="258033452%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stop-b-l-e-scan.html"><span>stop</span><wbr><span><span>BLEScan</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="258033452%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="stop-b-l-e-scan.html"><span class="token function">stopBLEScan</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stops scanning for BLE peripherals.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1755871029%2FFunctions%2F2074461332" anchor-label="stopHeartbeatJob" id="1755871029%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stop-heartbeat-job.html"><span>stop</span><wbr><span>Heartbeat</span><wbr><span><span>Job</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1755871029%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="stop-heartbeat-job.html"><span class="token function">stopHeartbeatJob</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">To be invoked when all devices are disconnected from the bridge; stops any ongoing heartbeat job</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-868691205%2FFunctions%2F2074461332" anchor-label="writeToPeripheral" id="-868691205%2FFunctions%2F2074461332" data-filterable-set=":bridge/commonMain"></a>
+          <div class="table-row table-row_content" data-filterable-current=":bridge/commonMain" data-filterable-set=":bridge/commonMain">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="write-to-peripheral.html"><span>write</span><wbr><span>To</span><wbr><span><span>Peripheral</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-868691205%2FFunctions%2F2074461332"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":bridge/commonMain"><div class="symbol monospace"><span class="token keyword">fun </span><a href="write-to-peripheral.html"><span class="token function">writeToPeripheral</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">device<span class="token operator">: </span><a href="../-bluetooth-device/index.html">BluetoothDevice</a><span class="token punctuation">, </span></span><span class="parameter ">charUUID<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/index.html">ByteArray</a><span class="token punctuation">, </span></span><span class="parameter ">operationType<span class="token operator">: </span><a href="../../com.lastlock.bridge.bluelink.dtq/-blue-link-operation-type/index.html">BlueLinkOperationType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-blue-link-operation-error/index.html">BlueLinkOperationError</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Purely writes the payloads to the provided device, provided that the characteristic to write exists on the device. To be used or simple write operations (write single payload to char)</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+<script id="sdk-version-script">
+(function(){
+  function getSdkVersion(){
+    var match = window.location.pathname.match(/\/sdk-api\/(?:ios|android)\/([^\/]+)/i);
+    return match ? decodeURIComponent(match[1]) : 'latest';
+  }
+  function inject(){
+    var nav = document.querySelector('.navigation');
+    var brand = nav ? nav.querySelector('.library-name--link') : null;
+    if(!nav || !brand) return;
+    var existing = nav.querySelector('.doc-version-badge');
+    if(existing){
+      existing.textContent = 'SDK ' + getSdkVersion();
+      return;
+    }
+    var badge = document.createElement('span');
+    badge.className = 'doc-version-badge';
+    badge.textContent = 'SDK ' + getSdkVersion();
+    brand.insertAdjacentElement('afterend', badge);
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inject);
+  } else {
+    inject();
+  }
+})();
+</script>
+<script id="link-dokka-branding-script">
+(function(){
+  var logoHref = '../../../branding/logo.png';
+  var faviconHref = '../../../branding/favicon.svg';
+  var genericTitle = 'LinkMobile | Documentation';
+  function setFavicon(){
+    var head = document.head;
+    if(!head) return;
+    Array.from(head.querySelectorAll('link[rel*="icon"]')).forEach(function(node){ node.remove(); });
+    var icon = document.createElement('link');
+    icon.id = 'link-favicon';
+    icon.rel = 'icon';
+    icon.href = faviconHref;
+    icon.type = 'image/svg+xml';
+    head.appendChild(icon);
+    var shortcutIcon = document.createElement('link');
+    shortcutIcon.rel = 'shortcut icon';
+    shortcutIcon.href = faviconHref;
+    shortcutIcon.type = 'image/svg+xml';
+    head.appendChild(shortcutIcon);
+  }
+  function normalizeHeader(){
+    var brand = document.querySelector('.navigation .library-name--link');
+    if(!brand) return;
+    brand.setAttribute('href', '/');
+    brand.replaceChildren();
+    var logo = document.createElement('img');
+    logo.className = 'doc-logo';
+    logo.src = logoHref;
+    logo.alt = 'Link logo';
+    var text = document.createElement('span');
+    text.textContent = 'LinkMobile';
+    brand.appendChild(logo);
+    brand.appendChild(text);
+  }
+  function getHeadingText(){
+    var heading = document.querySelector('h1');
+    return heading ? heading.textContent.trim() : '';
+  }
+  function getSignatureText(){
+    var candidates = Array.from(document.querySelectorAll('.cover code, .cover pre, .symbol, pre, code'));
+    for (var i = 0; i < candidates.length; i++) {
+      var text = (candidates[i].textContent || '').trim();
+      if (text) return text.replace(/\s+/g, ' ');
+    }
+    return '';
+  }
+  function isMemberPage(signature){
+    return /^(suspend\s+fun|fun|val|var|constructor)\b/.test(signature);
+  }
+  function setTitle(){
+    var heading = getHeadingText();
+    var signature = getSignatureText();
+    document.title = heading && isMemberPage(signature)
+      ? heading + ' | ' + genericTitle
+      : genericTitle;
+  }
+  function applyBranding(){
+    setFavicon();
+    normalizeHeader();
+    setTitle();
+  }
+  if(document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyBranding);
+  } else {
+    applyBranding();
+  }
+})();
+</script>
+</body>
+</html>
