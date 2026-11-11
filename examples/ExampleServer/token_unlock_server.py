@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reference backend for Aliro BLE credential exchange with Link Mobile SDK.
+"""Reference backend for Aliro BLE credential exchange with Last Lock Mobile SDK.
 
 The lock is the *reader*, the phone is the *user device*, and this server is the
 *Credential Issuer*. An Access Document (AD) is an issuer-signed statement that
@@ -34,8 +34,10 @@ The server persists two private signing keys and its reader-group identifier.
 Do not delete TOKEN_UNLOCK_DATA_DIR after configuring locks: they will not
 trust newly issued passes from a replacement issuer key.
 
-The only Link dependency is the generated public ``proto/org.proto`` Python
-client in this directory's ``gen/`` folder. Set ``ORG_NAME`` to the hosted
+The only Link dependency is the generated public Link v2 API
+(``proto/link_v2.proto``) Python client in this directory's ``gen/`` folder.
+Device IDs are Link v2 IDs: 32 lowercase hex characters. The mobile SDK
+reports each discovered lock's ``linkDeviceId`` in that form. Set ``ORG_NAME`` to the hosted
 Link organization slug; the server connects to that org over TLS on port 443.
 Set ``LINK_GRPC_ADDR`` to dial another address, such as a local org at
 ``localhost:3001``, and ``LINK_GRPC_SECURE=false`` for a plaintext connection.
@@ -67,11 +69,14 @@ from cryptography.x509.oid import NameOID
 from flask import Flask, jsonify, request
 import grpc
 
-# Public generated stubs from proto/org.proto, defined in https://github.com/last-lock/seamless-link
+# Public generated stubs from proto/link_v2.proto, defined in https://github.com/last-lock/seamless-link
 sys.path.insert(0, str(Path(__file__).with_name("gen")))
+import link_v2_pb2  # noqa: E402
+import link_v2_pb2_grpc  # noqa: E402
 import lockmodes_pb2  # noqa: E402
-import org_pb2  # noqa: E402
-import org_pb2_grpc  # noqa: E402
+
+# A Link v2 device ID: 32 lowercase hex characters, opaque to clients.
+DEVICE_ID_RE = re.compile(r"[0-9a-f]{32}")
 
 
 # Read an optional setting without repeating os.environ access at each call site.
@@ -147,9 +152,9 @@ def load_or_create_key(filename):
 
 # Derive the 20-byte Reader CA identifier that Profile0000 expects in a leaf AKI.
 def ca_key_id(key):
-    # The mobile SDK uses this SHA-256-derived key id when validating the
+    # The mobile SDK uses this SHA-1 key id when validating the
     # reader certificate restored from the lock's Profile0000 representation.
-    return hashlib.sha256(point(key.public_key())).digest()[:20]
+    return hashlib.sha1(point(key.public_key())).digest()
 
 
 # Load or issue the self-signed Reader CA certificate associated with the persisted CA key.
@@ -196,7 +201,7 @@ def load_state():
         return {"reader_group_id": "", "configured_devices": []}
     state = json.loads(path.read_text())
     if "configured_devices" not in state:
-        state["configured_devices"] = [int(device_id) for device_id, configured in state.pop("devices", {}).items() if configured]
+        state["configured_devices"] = [device_id for device_id, configured in state.pop("devices", {}).items() if configured]
     state.setdefault("reader_group_id", "")
     state.pop("granted_device_ids", None)  # Ignore grants written by older versions.
     return state
@@ -239,9 +244,9 @@ def reader_certificate(reader_public_key):
         .not_valid_before(now - timedelta(days=1)).not_valid_after(now + timedelta(days=3650))
         # This order is part of the signed X.509 TBS bytes. Link compresses
         # the cert to Profile0000, and iOS reconstructs it in this exact order.
-        .add_extension(x509.KeyUsage(True, False, False, False, False, False, False, False, False), critical=True)
-        .add_extension(x509.BasicConstraints(ca=False, path_length=None), critical=True)
         .add_extension(x509.AuthorityKeyIdentifier(ca_key_id(READER_CA_KEY), None, None), critical=False)
+        .add_extension(x509.BasicConstraints(ca=False, path_length=None), critical=True)
+        .add_extension(x509.KeyUsage(True, False, False, False, False, False, False, False, False), critical=True)
         .sign(READER_CA_KEY, hashes.SHA256()))
     return certificate.public_bytes(serialization.Encoding.DER)
 
@@ -312,21 +317,30 @@ def issue_access_document(device_key, valid_from, valid_until):
     return cbor({"1": {"aliro-a": [tagged_item]}, "2": [protected, {4: kid}, payload, signature]})
 
 
-# Lazily create and reuse the gRPC client for Link's public Org service.
-def org():
-    """Create one reusable public Org gRPC client for this process."""
-    if not hasattr(app, "org_channel"):
+# Lazily create and reuse the gRPC client for Link's v2 Devices service.
+def devices():
+    """Create one reusable Link v2 Devices gRPC client for this process."""
+    if not hasattr(app, "link_channel"):
         if LINK_GRPC_SECURE:
-            app.org_channel = grpc.secure_channel(LINK_GRPC_TARGET, grpc.ssl_channel_credentials())
+            app.link_channel = grpc.secure_channel(LINK_GRPC_TARGET, grpc.ssl_channel_credentials())
         else:
-            app.org_channel = grpc.insecure_channel(LINK_GRPC_TARGET)
-        app.org_client = org_pb2_grpc.OrgStub(app.org_channel)
-    return app.org_client
+            app.link_channel = grpc.insecure_channel(LINK_GRPC_TARGET)
+        app.devices_client = link_v2_pb2_grpc.DevicesStub(app.link_channel)
+    return app.devices_client
+
+
+# Read a Link v2 device ID from a JSON request body.
+def body_device_id(body):
+    """Return the body's device_id if it is a Link v2 device ID, else None."""
+    device_id = body.get("device_id")
+    if not isinstance(device_id, str) or not DEVICE_ID_RE.fullmatch(device_id):
+        return None
+    return device_id
 
 
 # Supply the backend Link API credential as gRPC request metadata.
 def link_auth():
-    """Attach the backend's Link API key to public Org API calls."""
+    """Attach the backend's Link API key to Link API calls."""
     return (("authorization", f"Bearer {LINK_API_KEY}"),)
 
 
@@ -348,13 +362,16 @@ def configure():
     phone. A 202 response means Link accepted the configuration for delivery;
     the lock may not have received it yet.
     """
-    device_id = (request.get_json(silent=True) or {}).get("device_id")
-    if isinstance(device_id, bool) or not isinstance(device_id, int) or not 0 < device_id <= 0xFFFFFFFF:
-        return jsonify(error="device_id is required"), 400
+    body = request.get_json(silent=True) or {}
+    if not isinstance(body, dict):
+        return jsonify(error="request body must be a JSON object"), 400
+    device_id = body_device_id(body)
+    if device_id is None:
+        return jsonify(error="device_id must be a Link v2 device ID (32 lowercase hex characters)"), 400
     try:
         # Public Link API: discover the lock's reader public key. It appears
         # only after the lock has completed its Aliro reader-key report.
-        summaries = org().ListDeviceSummaries(org_pb2.ListDevicesRequest(device_ids=[device_id]), metadata=link_auth(), timeout=15)
+        summaries = devices().ListDevices(link_v2_pb2.ListDevicesRequest(device_ids=[device_id]), metadata=link_auth(), timeout=15)
         if len(summaries.device_summaries) != 1:
             return jsonify(error="device was not found"), 404
         reader_bytes = summaries.device_summaries[0].aliro_reader_public_key
@@ -368,13 +385,13 @@ def configure():
         # issuer_public_keys lets it verify AD signatures from this server.
         # access_document_element_ids tells the lock which named data item to
         # request from the phone. The item we sign below must use that name.
-        config = org_pb2.AliroConfigForDevice(
+        config = link_v2_pb2.AliroConfigForDevice(
             device_id=device_id, reader_group_id=reader_group_id(), reader_certificate=reader_certificate(reader_key),
             issuer_public_keys=[point(ISSUER_KEY.public_key())],
             reader_system_issuer_ca_pub_key=point(READER_CA_KEY.public_key()),
             access_document_element_ids=[ELEMENT_ID.encode()],
         )
-        org().SetAliroConfig(org_pb2.SetAliroConfigRequest(configs=[config]), metadata=link_auth(), timeout=15)
+        devices().SetAliroConfig(link_v2_pb2.SetAliroConfigRequest(configs=[config]), metadata=link_auth(), timeout=15)
     except grpc.RpcError as error:
         return jsonify(error=f"Link API error: {error.code().name}: {error.details()}"), 502
     except ValueError:
@@ -404,10 +421,10 @@ def install_mode():
     body = request.get_json(silent=True) or {}
     if not isinstance(body, dict):
         return jsonify(error="request body must be a JSON object"), 400
-    device_id = body.get("device_id")
+    device_id = body_device_id(body)
     action = body.get("action")
-    if isinstance(device_id, bool) or not isinstance(device_id, int) or not 0 < device_id <= 0xFFFFFFFF:
-        return jsonify(error="device_id is required"), 400
+    if device_id is None:
+        return jsonify(error="device_id must be a Link v2 device ID (32 lowercase hex characters)"), 400
     if action == "enter":
         duration = body.get("duration_seconds", MIN_INSTALL_SECONDS)
         if isinstance(duration, bool) or not isinstance(duration, int) or not MIN_INSTALL_SECONDS <= duration <= MAX_INSTALL_SECONDS:
@@ -418,8 +435,8 @@ def install_mode():
     else:
         return jsonify(error="action must be enter or exit"), 400
     try:
-        org().SendLockMode(
-            org_pb2.SetDeviceModeRequest(device_id=device_id, modes=modes),
+        devices().SendLockMode(
+            link_v2_pb2.SetDeviceModeRequest(device_id=device_id, modes=modes),
             metadata=link_auth(),
             timeout=15,
         )
@@ -440,7 +457,7 @@ def issue_unlock_pass():
     No device ID is included; this example does not authorize an HTTP caller.
     """
     # The phone creates this key pair locally. Only its public half crosses the
-    # network; the private key remains in the Link Mobile SDK key store.
+    # network; the private key remains in the Last Lock Mobile SDK key store.
     body = request.get_json(silent=True) or {}
     if not isinstance(body, dict):
         return jsonify(error="request body must be a JSON object"), 400

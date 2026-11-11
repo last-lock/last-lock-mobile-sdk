@@ -1,8 +1,8 @@
 package com.example.linkmobile_android_example
 
 import android.util.Base64
-import com.lastlock.bridge.credlink.interfaces.ReaderGroupTrust
-import com.lastlock.bridge.credlink.interfaces.TokenUnlockPass
+import com.lastlock.mobile.sdk.ReaderGroupTrust
+import com.lastlock.mobile.sdk.TokenUnlockPass
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject

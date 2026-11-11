@@ -4,17 +4,11 @@ import android.content.Context
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lastlock.bridge.Bridge
-import com.lastlock.bridge.bluelink.BlueLink
-import com.lastlock.bridge.bluelink.BlueLinkDeviceConnectionStatus
-import com.lastlock.bridge.bluelink.BluetoothAdvertisement
-import com.lastlock.bridge.bluelink.BluetoothDevice
-import com.lastlock.bridge.bluelink.interfaces.BlueLinkEventListener
-import com.lastlock.bridge.bluelink.interfaces.SignalStrength
-import com.lastlock.bridge.credlink.CredLink
-import com.lastlock.bridge.credlink.config.CredLinkOperation
-import com.lastlock.bridge.credlink.enums.CredentialExchangeResult
-import com.lastlock.bridge.credlink.interfaces.CredentialExchangeListener
+import com.lastlock.mobile.sdk.LastLockMobileSdk
+import com.lastlock.mobile.sdk.DiscoveredDevice
+import com.lastlock.mobile.sdk.ILastLockMobileSdk
+import com.lastlock.mobile.sdk.UnlockEvent
+import com.lastlock.mobile.sdk.UnlockPass
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,37 +24,24 @@ data class TokenUnlockUiState(
 class ApplicationViewModel(
     context: Context,
     businessServerUrl: String,
-) : ViewModel(), CredentialExchangeListener {
-    private val blueLink: BlueLink = Bridge.getBlueLink()
-    private val credLink: CredLink = Bridge.getCredLink()
+) : ViewModel() {
+    private val lastLockMobileSdk: ILastLockMobileSdk = LastLockMobileSdk
     private val tokenUnlockClient = TokenUnlockClient(businessServerUrl)
     private val temporaryCredentialStore = TemporaryUnlockCredentialStore(context)
 
-    private val _allDevices = MutableStateFlow<List<BluetoothDevice>>(emptyList())
+    private val _allDevices = MutableStateFlow<List<DiscoveredDevice>>(emptyList())
     val allDevices = _allDevices.asStateFlow()
 
     private val _tokenUnlockUiState = MutableStateFlow(TokenUnlockUiState())
     val tokenUnlockUiState = _tokenUnlockUiState.asStateFlow()
 
-    private val blueLinkEventListener = object : BlueLinkEventListener() {
-        override fun onDeviceDiscovered(
-            device: BluetoothDevice,
-            advertisementData: BluetoothAdvertisement,
-            rssi: Int,
-            signalStrength: SignalStrength,
-            connectionStatus: BlueLinkDeviceConnectionStatus,
-        ) {
+    init {
+        lastLockMobileSdk.onDeviceDiscovered { device ->
             viewModelScope.launch(Dispatchers.Main) {
-                if (_allDevices.value.none { it.deviceId == device.deviceId }) {
-                    _allDevices.update { it + device }
-                }
+                _allDevices.update { devices -> devices.filterNot { it.identifier == device.identifier } + device }
             }
         }
-    }
-
-    init {
-        blueLink.addListener(blueLinkEventListener)
-        credLink.credentialExchangeListener = this
+        lastLockMobileSdk.onUnlockResult(::onUnlockResult)
         refreshTemporaryCredentialState()
     }
 
@@ -70,13 +51,11 @@ class ApplicationViewModel(
             setBusy("Creating temporary BLE credential…")
 
             try {
-                val namespace = temporaryCredentialStore.getOrCreateNamespace()
-                val publicKey = credLink.fetchPublicCredential(namespace)
-                val pass = tokenUnlockClient.issueTemporaryUnlockPass(publicKey)
+                val passId = temporaryCredentialStore.getOrCreatePassId()
+                val publicKey = lastLockMobileSdk.getOrCreatePassPublicKey(passId)
+                val pass: UnlockPass = tokenUnlockClient.issueTemporaryUnlockPass(publicKey)
 
-                check(credLink.storeTokenUnlockPass(namespace, pass)) {
-                    "Unable to store the temporary unlock pass"
-                }
+                lastLockMobileSdk.storePass(passId, pass)
                 _tokenUnlockUiState.update {
                     it.copy(
                         isBusy = false,
@@ -94,25 +73,22 @@ class ApplicationViewModel(
     }
 
     /** Queues a BLE unlock using the persisted temporary credential. */
-    fun performTemporaryUnlock(device: BluetoothDevice) {
+    fun performTemporaryUnlock(device: DiscoveredDevice) {
         viewModelScope.launch {
-            val namespace = temporaryCredentialStore.existingNamespace() ?: run {
+            val passId = temporaryCredentialStore.existingPassId() ?: run {
                 setStatus("Create a temporary unlock pass before unlocking.")
                 return@launch
             }
 
-            if (credLink.getTokenUnlockPass(namespace) == null) {
+            if (lastLockMobileSdk.getPass(passId) == null) {
                 refreshTemporaryCredentialState()
                 setStatus("Create a temporary unlock pass before unlocking.")
                 return@launch
             }
 
-            setBusy("Unlocking ${device.deviceId} with the temporary credential…")
+            setBusy("Unlocking ${device.identifier} with the temporary credential…")
             try {
-                credLink.performCredLinkOperation(
-                    peripheral = device,
-                    operation = CredLinkOperation.TokenUnlock(namespace = namespace),
-                )
+                lastLockMobileSdk.unlock(device.identifier, passId)
             } catch (error: Exception) {
                 _tokenUnlockUiState.update {
                     it.copy(isBusy = false, status = error.userMessage())
@@ -122,27 +98,31 @@ class ApplicationViewModel(
         }
     }
 
-    override fun onCredentialExchangeResult(
-        device: BluetoothDevice,
-        result: CredentialExchangeResult,
-    ) {
+    private fun onUnlockResult(event: UnlockEvent) {
+        if (event.passId != temporaryCredentialStore.existingPassId()) return
         _tokenUnlockUiState.update {
-            it.copy(isBusy = false, status = "${device.deviceId}: $result")
+            it.copy(isBusy = false, status = "${event.identifier}: ${event.message}")
         }
     }
 
+    /** Releases SDK activity and logs cleanup failures after the ViewModel's own scope ends. */
     override fun onCleared() {
-        blueLink.removeListener(blueLinkEventListener)
-        if (credLink.credentialExchangeListener === this) {
-            credLink.credentialExchangeListener = null
+        lastLockMobileSdk.onDeviceDiscovered(null)
+        lastLockMobileSdk.onUnlockResult(null)
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main).launch {
+            try {
+                lastLockMobileSdk.shutdown()
+            } catch (error: Exception) {
+                Log.w(TAG, "SDK shutdown failed", error)
+            }
         }
         super.onCleared()
     }
 
     private fun refreshTemporaryCredentialState() {
         viewModelScope.launch {
-            val namespace = temporaryCredentialStore.existingNamespace()
-            val hasPass = namespace != null && credLink.getTokenUnlockPass(namespace) != null
+            val passId = temporaryCredentialStore.existingPassId()
+            val hasPass = passId != null && lastLockMobileSdk.getPass(passId) != null
             _tokenUnlockUiState.update { it.copy(temporaryCredentialReady = hasPass) }
         }
     }
@@ -158,6 +138,6 @@ class ApplicationViewModel(
     private fun Exception.userMessage(): String = message ?: "An unexpected error occurred."
 
     private companion object {
-        const val TAG = "LinkMobileExample"
+        const val TAG = "LastLockMobileSdkExample"
     }
 }

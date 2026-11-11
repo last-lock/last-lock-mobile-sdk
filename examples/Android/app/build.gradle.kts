@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation("com.lastlock.prod:bridge-android:2.7.0")
+    implementation("com.lastlock:lastlock-mobile-sdk-android:2.7.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

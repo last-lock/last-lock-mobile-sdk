@@ -25,7 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.lastlock.bridge.bluelink.BluetoothDevice
+import com.lastlock.mobile.sdk.DiscoveredDevice
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -79,9 +79,9 @@ private fun CredentialActions(
 
 @Composable
 private fun DiscoveredDevicesList(
-    devices: List<BluetoothDevice>,
+    devices: List<DiscoveredDevice>,
     state: TokenUnlockUiState,
-    onTemporaryUnlock: (BluetoothDevice) -> Unit,
+    onTemporaryUnlock: (DiscoveredDevice) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     if (devices.isEmpty()) {
@@ -101,7 +101,7 @@ private fun DiscoveredDevicesList(
     ) {
         items(
             items = devices,
-            key = { it.deviceId.toString() },
+            key = { it.identifier },
         ) { device ->
             DeviceCard(
                 device = device,
@@ -114,7 +114,7 @@ private fun DiscoveredDevicesList(
 
 @Composable
 private fun DeviceCard(
-    device: BluetoothDevice,
+    device: DiscoveredDevice,
     state: TokenUnlockUiState,
     onTemporaryUnlock: () -> Unit,
 ) {
@@ -131,7 +131,7 @@ private fun DeviceCard(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = "Device: ${device.deviceId}",
+                text = "Device: ${device.identifier}",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.weight(1f),
             )

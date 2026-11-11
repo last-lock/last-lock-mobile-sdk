@@ -1,0 +1,73 @@
+name: LastLockMobileSdk-iOS-Example
+
+options:
+  bundleIdPrefix: com.last-lock.ios.development
+  deploymentTarget:
+    iOS: "18.2"
+  createIntermediateGroups: true
+
+# The sample intentionally uses the published SDK rather than mono targets.
+packages:
+  LastLockMobileSdk:
+    url: https://github.com/last-lock/link-mobile-sdk-prod
+    exactVersion: 2.7.0
+
+targets:
+  LastLockMobileSdk-iOS-Example:
+    type: application
+    platform: iOS
+    sources:
+      - path: LastLockMobileSdk-iOS-Example
+    dependencies:
+      - package: LastLockMobileSdk
+        product: LastLockMobileSdk
+      - package: LastLockMobileSdk
+        product: LastLockMobileSdkTypes
+    info:
+      path: LastLockMobileSdk-iOS-Example/Info.plist
+      properties:
+        # Use the established full-screen presentation rather than the newer
+        # compatibility window style that can show the app as a rounded card.
+        UIDesignRequiresCompatibility: YES
+        NSBluetoothAlwaysUsageDescription: To discover nearby Last Lock Devices
+        # Development-only. Production integrators should host their issuer over HTTPS.
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+        UIApplicationSceneManifest_Generation: YES
+        UIApplicationSupportsIndirectInputEvents: YES
+        UILaunchScreen: { "Launch Screen": "Launch Screen" }
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        DEVELOPMENT_TEAM: B3T5JUJ5CX
+        PRODUCT_BUNDLE_IDENTIFIER: com.last-lock.ios.development.LastLockMobileSdk-iOS-Example
+        PRODUCT_NAME: "$(TARGET_NAME)"
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/Frameworks"
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: "DEBUG $(inherited)"
+          SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+          DEBUG_INFORMATION_FORMAT: dwarf
+        Release:
+          SWIFT_COMPILATION_MODE: wholemodule
+          DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+
+schemes:
+  LastLockMobileSdk-iOS-Example:
+    build:
+      targets:
+        LastLockMobileSdk-iOS-Example: all
+    run:
+      config: Debug
+      executable: LastLockMobileSdk-iOS-Example

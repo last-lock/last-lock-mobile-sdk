@@ -14,8 +14,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import com.example.linkmobile_android_example.ui.theme.LinkMobileAndroidExampleTheme
-import com.lastlock.bridge.Bridge
+import com.example.linkmobile_android_example.ui.theme.LastLockMobileSdkAndroidExampleTheme
+import com.lastlock.mobile.sdk.LastLockMobileSdk
 
 internal fun requiredLinkPermissions(sdkInt: Int): List<String> = when {
     sdkInt >= Build.VERSION_CODES.TIRAMISU -> listOf(
@@ -74,7 +74,7 @@ class MainActivity : ComponentActivity() {
         if (missingPermissions.isEmpty()) {
             if (!permissionsGranted) {
                 Log.d("MainActivity", "Permissions granted!")
-                startLinkMobile()
+                startLastLockMobileSdk()
                 permissionsGranted = true
             }
         } else {
@@ -128,8 +128,8 @@ class MainActivity : ComponentActivity() {
             .show()
     }
 
-    private fun startLinkMobile() {
-        Bridge.start()
+    private fun startLastLockMobileSdk() {
+        LastLockMobileSdk.start()
     }
 
 
@@ -141,7 +141,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         setContent {
-            LinkMobileAndroidExampleTheme {
+            LastLockMobileSdkAndroidExampleTheme {
                 DeviceScreen(viewModel = applicationViewModel)
             }
         }

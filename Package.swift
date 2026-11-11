@@ -2,18 +2,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "LinkMobileiOS",
+    name: "LastLockMobileSdk",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .library(
-            name: "LinkMobile",
-            targets: ["LinkMobile", "LinkMobileTypes", "bridge"]
+            name: "LastLockMobileSdk",
+            targets: ["LastLockMobileSdk", "LastLockMobileSdkTypes", "LastLockMobileSdkCore"]
         ),
         .library(
-            name: "LinkMobileTypes",
-            targets: ["LinkMobileTypes"]
+            name: "LastLockMobileSdkTypes",
+            targets: ["LastLockMobileSdkTypes"]
         )
     ],
     dependencies: [
@@ -25,17 +25,17 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "LinkMobile",
-            url: "https://api.github.com/repos/last-lock/link-mobile-sdk-prod/releases/assets/698918906.zip",
-            checksum: "b33abb1e202a271718b8b23451dc40c4f4c1244e24c66baa792f939bc123e5a4"
+            name: "LastLockMobileSdk",
+            url: "https://api.github.com/repos/last-lock/link-mobile-sdk-prod/releases/assets/737229454.zip",
+            checksum: "ca2cd973cbd1a770cc10bba19118025bd5db87f829c97b0c61b1eb3c9b7b3dbc"
         ),
         .binaryTarget(
-            name: "bridge",
-            url: "https://api.github.com/repos/last-lock/link-mobile-sdk-prod/releases/assets/698918905.zip",
-            checksum: "0c68b921bb04813f47cd5dde2057acb8a2b87f9c95c48c214516115946c128b3"
+            name: "LastLockMobileSdkCore",
+            url: "https://api.github.com/repos/last-lock/link-mobile-sdk-prod/releases/assets/737229451.zip",
+            checksum: "dc752ebadac46ce2b050c97ec6ee05da782b65143c1faf8d6fc51b65d49d0c71"
         ),
         .target(
-            name: "LinkMobileTypes",
+            name: "LastLockMobileSdkTypes",
             dependencies: [
                 .product(name: "GRPC", package: "grpc-swift"),
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
@@ -45,7 +45,7 @@ let package = Package(
                 .product(name: "NIOHTTP2", package: "swift-nio-http2"),
                 .product(name: "Atomics", package: "swift-atomics")
             ],
-            path: "Sources/LinkMobileTypes"
+            path: "Sources/LastLockMobileSdkTypes"
         )
     ]
 )

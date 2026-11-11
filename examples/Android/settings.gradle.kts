@@ -28,6 +28,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LinkMobile-Android-Example"
+rootProject.name = "LastLockMobileSdk-Android-Example"
 include(":app")
  
