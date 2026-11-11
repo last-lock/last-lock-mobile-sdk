@@ -1,0 +1,41 @@
+{
+  "name": "@last-lock/lastlock-mobile-sdk",
+  "version": "2.7.6",
+  "description": "React Native bridge for the Last Lock Mobile SDK",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "files": [
+    "src",
+    "android",
+    "ios",
+    "app.plugin.js",
+    "react-native.config.js",
+    "LastLockMobileSdkRN.podspec"
+  ],
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "LastLockMobileSdkSpec",
+    "type": "modules",
+    "jsSrcsDir": "src/specs",
+    "android": {
+      "javaPackageName": "com.lastlock.lastlockmobilesdk"
+    },
+    "ios": {
+      "modulesProvider": {
+        "LastLockMobileSdk": "LastLockMobileSdk"
+      }
+    }
+  },
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/last-lock/link-mobile-sdk-prod.git",
+    "directory": "react-native/lastlock-mobile-sdk"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
